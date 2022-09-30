@@ -63,5 +63,19 @@ namespace TestProject1
             }
         }
 
+        [TestMethod]
+        public void GivenPassword_ShouldThrow_UserRegistrationCustomException()
+        {
+            try
+            {
+                bool expected = true;
+                Assert.AreEqual(expected, patternsMatch.ValidatePassword(null));
+            }
+            catch (UserRegistrationCustomException e)
+            {
+                Assert.AreEqual("Invalid Password", e.Message);
+            }
+        }
+
     }
 }
